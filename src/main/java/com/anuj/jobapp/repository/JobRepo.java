@@ -21,6 +21,9 @@ public class JobRepo {
     public List<JobPost> getJobs() {
         return jobs;
     }
+    public void deleteJobById(int id) {
+        jobs.removeIf(jobPost -> jobPost.getPostId() == id);
+    }
 
     public void addJob(JobPost jobPost) {
         jobs.add(jobPost);

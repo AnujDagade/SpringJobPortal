@@ -16,7 +16,16 @@ public class JobService {
         jobRepo.addJob(jobPost);
     }
 
+    /*
+        @Param: None
+        @Return: List of JobPost
+        Returns all the jobs
+     */
     public List<JobPost> getJobs() {
         return jobRepo.getJobs();
+    }
+
+    public void deleteJob(int id) {
+        jobRepo.deleteJobById(id);
     }
 }

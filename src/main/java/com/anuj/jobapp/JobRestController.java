@@ -6,10 +6,7 @@ import com.anuj.jobapp.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,5 +30,12 @@ public class JobRestController {
     public ResponseEntity<Response> addJob(JobPost jobPost) {
         jobService.addJob(jobPost);
         return new ResponseEntity<>(new Response("Job created", 201), HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("job/{id}")
+    public ResponseEntity<Response> deleteJob(@PathVariable("id") int id) {
+        jobService.deleteJob(id);
+        System.out.println(jobService.getJobs());
+        return new ResponseEntity<>(new Response("Job deleted", 200), HttpStatus.OK);
     }
 }
