@@ -13,7 +13,8 @@ public class JobService {
     JobRepo jobRepo;
 
     public void addJob(JobPost jobPost) {
-        jobRepo.addJob(jobPost);
+        System.out.println(jobPost);
+        jobRepo.save(jobPost);
     }
 
     /*
@@ -22,10 +23,10 @@ public class JobService {
         Returns all the jobs
      */
     public List<JobPost> getJobs() {
-        return jobRepo.getJobs();
+        return jobRepo.findAll();
     }
 
     public void deleteJob(int id) {
-        jobRepo.deleteJobById(id);
+        jobRepo.deleteById(id);
     }
 }

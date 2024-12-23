@@ -27,7 +27,7 @@ public class JobRestController {
     this is just temporary solution.
      */
     @PostMapping("job")
-    public ResponseEntity<Response> addJob(JobPost jobPost) {
+    public ResponseEntity<Response> addJob(@RequestBody JobPost jobPost) {
         jobService.addJob(jobPost);
         return new ResponseEntity<>(new Response("Job created", 201), HttpStatus.CREATED);
     }
