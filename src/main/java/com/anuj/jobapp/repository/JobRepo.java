@@ -2,6 +2,7 @@ package com.anuj.jobapp.repository;
 
 import com.anuj.jobapp.model.JobPost;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -34,4 +35,9 @@ import java.util.List;
 //learn about extending an interface with another interface
 @Repository
 public interface JobRepo extends JpaRepository<JobPost, Integer> {
+//    @Query("SELECT c FROM JobPost  c WHERE c.companyName = ?1")
+//    List<JobPost> findByName(String name);
+
+    List<JobPost> findByCompanyName(String name);
+
 }

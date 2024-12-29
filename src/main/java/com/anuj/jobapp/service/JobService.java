@@ -26,6 +26,11 @@ public class JobService {
         return jobRepo.findAll();
     }
 
+    public List<JobPost> getJobs(String companyName) {
+
+        return jobRepo.findByCompanyName(companyName);
+    }
+
     public void deleteJob(int id) {
         jobRepo.deleteById(id);
     }

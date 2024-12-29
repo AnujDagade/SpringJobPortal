@@ -38,4 +38,9 @@ public class JobRestController {
         System.out.println(jobService.getJobs());
         return new ResponseEntity<>(new Response("Job deleted", 200), HttpStatus.OK);
     }
+
+    @GetMapping("jobs/{companyName}")
+    public ResponseEntity<List<JobPost>> getJobsByCompany(@PathVariable("companyName") String companyName) {
+        return new ResponseEntity<>(jobService.getJobs(companyName), HttpStatus.OK);
+    }
 }
